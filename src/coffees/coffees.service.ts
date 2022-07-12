@@ -5,8 +5,8 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
-import { Event } from 'src/events/entities/event.entity';
+import { PaginationQuery } from './dto/pagination-query.dto';
+import { Event } from './entities/event.entity';
 import { DataSource, FindOneOptions, Repository } from 'typeorm';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
@@ -23,7 +23,7 @@ export class CoffeesService {
     private readonly dataSource: DataSource,
   ) {}
 
-  findAll(paginationQuery: PaginationQueryDto) {
+  findAll(paginationQuery: PaginationQuery) {
     const { limit, offset } = paginationQuery;
 
     return this.coffeeRepository.find({
