@@ -17,6 +17,7 @@ import { CoffeesService } from './coffees.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { Public } from '../common/decorators/public.decorator';
+import { resolve } from 'path';
 
 @Controller('coffees')
 export class CoffeesController {
@@ -24,7 +25,8 @@ export class CoffeesController {
 
   @Public()
   @Get()
-  findAll(@Query() paginationQuery: PaginationQuery) {
+  async findAll(@Query() paginationQuery: PaginationQuery) {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     return this.coffeeService.findAll(paginationQuery);
   }
 
