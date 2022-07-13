@@ -20,6 +20,7 @@ import { Public } from '../common/decorators/public.decorator';
 import { resolve } from 'path';
 import { ParseIntPipe } from '../common/pipes/parse-int.pipe';
 import { Protocol } from '../common/decorators/protocol.decorator';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller('coffees')
 export class CoffeesController {
