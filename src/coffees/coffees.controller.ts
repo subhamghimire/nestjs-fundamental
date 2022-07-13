@@ -26,6 +26,7 @@ import { ApiResponse } from '@nestjs/swagger';
 export class CoffeesController {
   constructor(private readonly coffeeService: CoffeesService) {}
 
+  @ApiResponse({ status: 403, description: 'Forbidden' })
   @Public()
   @Get()
   async findAll(
