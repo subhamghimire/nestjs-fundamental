@@ -21,7 +21,7 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalInterceptors(
     new WrapResponseInterceptor(),
-    new TimeoutInterceptor(),
+    // new TimeoutInterceptor(),
   );
   await app.listen(3000);
 }
